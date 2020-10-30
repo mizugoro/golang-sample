@@ -1,4 +1,4 @@
-package sample
+package main
 
 /*Goのコードはパッケージの宣言から始まる
 プログラムをコンパイルして実行するとまずsampleパッケージの中にあるmain関数が実行されるため、
@@ -18,5 +18,14 @@ _を付けた場合はimportしたpackageを使用しないことをコンパイ
 .を付けた場合は使用時にパッケージ名が省略可能になります*/
 
 func main() {
-	fmt.Println("Hello world.")
+	// var message string = "hello world"
+	/*var 変数名 型で変数の宣言を行う
+	ex: var foo,bar, buz string = "foo","bar","buz
+	1度に多くの変数を同じ型で宣言する場合はvarと二つ目以降の型を省略することができる
+	*/
+
+	message := "hello world"
+
+	//この書き方をした場合、変数の型は代入する値からコンパイラによって推論される。
+	fmt.Println(message)
 }
