@@ -6,6 +6,16 @@ func fn(arr [4]string) {
 	fmt.Println(arr)
 }
 
+//可変長引数
+//関数において引数を次のように指定すると可変長引数として任意の数の引数をその型のスライスとして受け取ることができる
+
+func sum(nums ...int) (result int) {
+	//numsは[]int型
+	for _, n := range nums {
+		result += n
+	}
+	return
+}
 func main() {
 	var arr1 [4]string
 	arr1[0] = "a"
@@ -18,8 +28,6 @@ func main() {
 	arr3 := [...]string{"a", "b", "c", "d"}
 	fmt.Println(arr2[1], arr3[2])
 
-	var arr4 [5]string
-	fn(arr1)
-	//fnt(arr4) //error
+	fmt.Println(sum(1, 2, 3, 4)) //10
 
 }
