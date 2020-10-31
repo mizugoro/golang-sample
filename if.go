@@ -13,4 +13,5 @@ func main() {
 	} else {
 		fmt.Println("a equals b")
 	}
+	//if文の条件部に丸括弧は必要ない
 }
