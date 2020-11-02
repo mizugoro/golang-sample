@@ -11,6 +11,14 @@ type Task struct {
 func Finish(task *Task) {
 	task.done = true
 }
+func NewTask(id int, detail string) *Task {
+	task := &Task{
+		ID:     id,
+		Detail: detail,
+		done:   false,
+	}
+	return task
+}
 
 func main() {
 	//var task Task = Task{1, "buy the milk", true} //Task型
@@ -28,4 +36,11 @@ func main() {
 
 	//new()を用いて初期化することができる
 	//new()は構造体のフィールドをすべてゼロ値で初期化し、そのポインタを返す
+
+	task1 := NewTask(1, "buy the milk")
+	// &{ID:1,Detail:buy the milk,done:false}
+	fmt.Printf("%+v", task1)
+
+	//コンストラクタにあたる構文がない
+	//Newではじまる関数を定義し、その内部で構造体を生成するのが通例
 }
