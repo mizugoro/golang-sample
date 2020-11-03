@@ -1,12 +1,18 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"os"
 )
 
 type Writer interface {
 	Write(p []byte) (n int, err error)
+}
+
+//ファイルの読み出し
+type Reader interface {
+	Read(p []byte) (n int, err error)
 }
 
 func main() {
@@ -26,5 +32,23 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+
+	//ファイルを開く
+	file, err = os.Open("./file.txt")
+	if err != nil {
+		log.Fatal(err)
+	}
+	//プログラムが終わったらファイルを閉じる
+	defer file.Close()
+
+	message1 := make([]byte, 12)
+
+	//ファイル内のデータをスライスに読みだす
+	_, err = file.Read(message1)
+	if err != nil {
+		log.Fatal(err)
+	}
+	//文字列にして表示
+	fmt.Println(string(message1))
 
 }
