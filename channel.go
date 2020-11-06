@@ -6,30 +6,30 @@ import (
 	"net/http"
 )
 
-func main() {
-	urls := []string{
-		"http://google.com",
-		"http://amazon.com",
-		"http://yahoo.com",
-	}
-	//stringを扱うチャネルを作成
+func getStatus(urls []string) <-chan string {
+	//関数でチャネルを作成
 	statusChan := make(chan string)
 	for _, url := range urls {
-		//取得処理をゴルーチンで行う
 		go func(url string) {
 			res, err := http.Get(url)
 			if err != nil {
 				log.Fatal(err)
 			}
 			defer res.Body.Close()
-			//チャネルにstringを書き込む
 			statusChan <- res.Status
-
 		}(url)
-
 	}
+	return statusChan
+}
+
+func main() {
+	urls := []string{
+		"http://google.com",
+		"http://amazon.com",
+		"http://yahoo.com",
+	}
+	statusChan := getStatus(urls)
 	for i := 0; i < len(urls); i++ {
-		//チャネルからstringを読み出す
 		fmt.Println(<-statusChan)
 	}
 }
