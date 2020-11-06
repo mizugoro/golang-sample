@@ -31,7 +31,6 @@ func main() {
 	}
 	//待ち合わせ
 	wait.Wait()
-	fmt.Println("")
 	//main()が終わらないように待ち合わせる
 	//time.Sleep(time.Second)
 }
