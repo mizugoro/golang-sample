@@ -31,7 +31,7 @@ func main() {
 		"http://github.com",
 	}
 	statusChan := getStatus(urls)
-LOOP:
+LOOP: //ラベル名は任意
 	for {
 		select {
 		case status := <-statusChan:
