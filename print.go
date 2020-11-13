@@ -23,6 +23,10 @@ func main() {
 	ex: var foo,bar, buz string = "foo","bar","buz
 	1度に多くの変数を同じ型で宣言する場合はvarと二つ目以降の型を省略することができる
 	*/
+	/*
+		var宣言の代わりに :=の代入分を使い暗黙的な型宣言ができる
+		関数の外では利用できない
+	*/
 
 	message := "hello world"
 
