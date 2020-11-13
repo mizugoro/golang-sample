@@ -36,6 +36,12 @@ func main() {
 
 	//new()を用いて初期化することができる
 	//new()は構造体のフィールドをすべてゼロ値で初期化し、そのポインタを返す
+	/*
+		ゼロ値
+		数値型(int,floatなど):0
+		bool型:false
+		string型:""空文字列
+	*/
 
 	task1 := NewTask(1, "buy the milk")
 	// &{ID:1,Detail:buy the milk,done:false}
