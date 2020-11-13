@@ -43,7 +43,7 @@ func PersonHandler(w http.ResponseWriter, r *http.Request) {
 
 	}else if r.Method == "GET"{
 		//パラメータを取得
-		if _,err := strconv.Atoi(r.URL.Query().Get("id"))
+		if err := strconv.Atoi(r.URL.Query().Get("id"))
 		if err != nil {
 			log.Fatal(err)
 		}
