@@ -14,4 +14,10 @@ func main() {
 		})
 	})
 	engine.Run(":3000")
+	/*http.ListenAndServe(address,engin)を中身で呼んでいる*/
 }
+
+/*
+net-http.go
+html-template.goが参考になる
+*/
